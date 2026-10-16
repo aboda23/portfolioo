@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, LogIn } from 'lucide-react';
 
 const WHATSAPP_URL = 'https://wa.me/201029409081';
 
@@ -53,8 +53,16 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Right CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <NavLink
+            to="/admin/login"
+            className="px-4 py-2 rounded-full text-xs font-semibold text-gray-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-200 flex items-center gap-1.5"
+          >
+            <LogIn className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Login</span>
+          </NavLink>
+
           <button
             onClick={handleLetsTalk}
             className="px-5 py-2.5 rounded-full text-sm font-medium text-white bg-white/[0.05] hover:bg-indigo-600/20 border border-white/10 hover:border-indigo-500/50 transition-all duration-300 flex items-center gap-1.5 group cursor-pointer shadow-sm hover:shadow-indigo-500/20"
@@ -98,7 +106,16 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 space-y-2">
+            <NavLink
+              to="/admin/login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-2.5 px-4 rounded-xl text-center text-sm font-semibold text-gray-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 flex items-center justify-center gap-2 transition-colors"
+            >
+              <LogIn className="w-4 h-4 text-indigo-400" />
+              <span>Login</span>
+            </NavLink>
+
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

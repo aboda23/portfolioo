@@ -88,7 +88,7 @@ export default function ProjectForm({ isOpen, onClose, onSave, initialData = nul
             <input
               type="text"
               required
-              placeholder="e.g. HoneyMoonerz Travel"
+              placeholder="e.g. MIXO 3D Studio"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500"

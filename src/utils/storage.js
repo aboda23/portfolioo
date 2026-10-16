@@ -112,62 +112,69 @@ const createMockImage = (title, subtitle, themeBg, themeAccent) => {
 export const DEFAULT_PROJECTS = [
   {
     id: '1',
-    title: 'HoneyMoonerz Travel',
-    category: 'Travel & Tourism',
-    description: 'A modern travel website for international tourism, with beautiful destinations and easy booking experience.',
-    technologies: ['Next.js', 'Tailwind CSS', 'Vercel'],
-    images: [
-      createMockImage('Discover the World', 'Luxury travel packages & destination guides', '#0b1329', '#3b82f6')
-    ],
-    url: 'https://honeymoonerz.com',
+    title: 'MIXO 3D — Custom 3D Printing & Design Studio',
+    category: '3D Studio & E-Commerce',
+    description: 'A premier 3D printing and custom design studio in Egypt featuring interactive 3D masks, custom figures, and STL printing services with high-end animations and smooth performance.',
+    technologies: ['React 19', 'Tailwind CSS', 'Three.js', 'GSAP', 'Framer Motion', 'Supabase', 'Lenis', 'Vite'],
+    images: ['/mixo-preview.png'],
+    url: 'https://mixo-one.vercel.app/',
     featured: true,
-    createdAt: new Date('2026-01-15').toISOString()
+    createdAt: new Date('2026-10-12').toISOString()
   },
   {
     id: '2',
-    title: 'Ora Painting Workshop',
-    category: 'Art & Workshops',
-    description: 'A creative workshop website showcasing art activities and workshops, with a clean and inspiring design.',
-    technologies: ['Next.js', 'Tailwind CSS', 'Vercel'],
-    images: [
-      createMockImage('Turn Wood Into Art', 'Handcrafted masterclasses & creative art sessions', '#1e1026', '#a855f7')
-    ],
-    url: 'https://oraworkshop.com',
+    title: 'Apple Vision Pro — Spatial Computing Experience',
+    category: 'Interactive 3D & Spatial Web',
+    description: 'An immersive Apple Vision Pro showcase featuring cutting-edge 3D interactive models, fluid GSAP scroll-triggered animations, React Three Fiber, and ultra-smooth Lenis navigation.',
+    technologies: ['React 19', 'Three.js', 'R3F / Drei', 'GSAP', 'Framer Motion', 'Tailwind CSS', 'Lenis', 'Vite'],
+    images: ['/apple-vision-pro.png'],
+    url: 'https://apple-clone-omega-ruddy.vercel.app/',
     featured: true,
-    createdAt: new Date('2026-02-10').toISOString()
+    createdAt: new Date('2026-10-12').toISOString()
   },
   {
     id: '3',
-    title: 'Skyline International Agent',
-    category: 'Travel Agency',
-    description: 'A professional website for travel services and procedures, helping clients with their international journeys.',
-    technologies: ['Next.js', 'Tailwind CSS', 'Vercel'],
-    images: [
-      createMockImage('Your Journey Starts Here', 'Global passport, visa & travel consultation services', '#081726', '#0284c7')
-    ],
-    url: 'https://skyline-travel.com',
+    title: 'AURA — Ancient Soul. Modern Aura.',
+    category: 'Luxury Fashion & E-Commerce',
+    description: 'A luxury Egyptian fashion e-commerce brand reimagining timeless heritage with modern silhouettes, interactive collection showcases, fluid animations, and a bespoke shopping experience.',
+    technologies: ['React 19', 'Tailwind CSS', 'GSAP', 'Framer Motion', 'Zustand', 'React Query', 'Vite'],
+    images: ['/aura-hero.png'],
+    url: 'https://aura-xi-red.vercel.app/',
     featured: true,
-    createdAt: new Date('2026-03-01').toISOString()
+    createdAt: new Date('2026-10-12').toISOString()
   },
   {
     id: '4',
-    title: 'Lidia Hotel Dahab',
-    category: 'Hotel & Hospitality',
-    description: 'A stunning website for a hotel in Dahab, with a luxurious design that reflects the beauty of the place.',
-    technologies: ['Next.js', 'Tailwind CSS', 'Vercel'],
-    images: [
-      createMockImage('Lidia Hotel Dahab', 'Seaside resort sanctuary & luxury desert suites', '#181c16', '#10b981')
-    ],
-    url: 'https://lidiahotel.com',
+    title: 'Mari Sushi — マリ寿司',
+    category: 'Restaurant & Food Ordering',
+    description: 'An authentic Japanese sushi dining and online ordering experience featuring an interactive menu, rolls and platters customization, shopping cart, and instant WhatsApp ordering integration.',
+    technologies: ['JavaScript (ES6+)', 'Modern CSS3', 'Interactive UI', 'E-Commerce Cart', 'WhatsApp API', 'Vercel'],
+    images: ['/mari-sushi.png'],
+    url: 'https://mari-sushi.vercel.app/',
     featured: true,
-    createdAt: new Date('2026-03-15').toISOString()
+    createdAt: new Date('2026-10-12').toISOString()
+  },
+  {
+    id: '5',
+    title: 'CASTELLO — Good Food • Good Mood',
+    category: 'Restaurant & Digital QR Menu',
+    description: 'A vibrant digital QR menu and online ordering web application for CASTELLO restaurant, featuring pizza, pies, and crepes with category filters, interactive cart management, and instant WhatsApp ordering.',
+    technologies: ['JavaScript (ES6+)', 'Modern CSS3', 'RTL Layout', 'Interactive Menu', 'E-Commerce Cart', 'WhatsApp API', 'Vercel'],
+    images: ['/castello-menu.png'],
+    url: 'https://casteilo-menu.vercel.app/',
+    featured: true,
+    createdAt: new Date('2026-10-12').toISOString()
   }
 ];
 
-const LOCAL_STORAGE_KEY = 'web_hub_projects_meta_v1';
+const LOCAL_STORAGE_KEY = 'web_hub_projects_meta_v6';
 
 export function getProjectsFromStorage() {
   try {
+    // Clean up old storage if upgrading
+    ['web_hub_projects_meta_v1', 'web_hub_projects_meta_v2', 'web_hub_projects_meta_v3', 'web_hub_projects_meta_v4', 'web_hub_projects_meta_v5'].forEach((k) => {
+      if (localStorage.getItem(k)) localStorage.removeItem(k);
+    });
     const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (!raw) {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(DEFAULT_PROJECTS));

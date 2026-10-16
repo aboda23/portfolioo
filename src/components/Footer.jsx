@@ -47,9 +47,6 @@ export default function Footer() {
             <NavLink to="/contact" className="hover:text-white transition-colors">
               Contact
             </NavLink>
-            <NavLink to="/admin" className="text-xs text-gray-500 hover:text-indigo-400 transition-colors">
-              Admin
-            </NavLink>
           </div>
 
           {/* Right Social Actions */}
